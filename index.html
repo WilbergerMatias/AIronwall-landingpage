@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>AIronWall - Cyber Security</title>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "GA_TRACKING_ID");
+
+      // Track button clicks and navigation
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(
+          "button, .plan-button, .newsletter-button, .cta-button, .learn-more-button, .nav-button",
+        );
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            const buttonText = this.textContent.trim();
+            const actionType =
+              this.getAttribute("data-action") ||
+              this.getAttribute("data-nav") ||
+              "general";
+            gtag("event", "button_click", {
+              event_category: "engagement",
+              event_label: buttonText,
+              action_type: actionType,
+              value: 1,
+            });
+          });
+        });
+
+        // Track social media clicks
+        const socialLinks = document.querySelectorAll(".social-link");
+        socialLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const platform = this.getAttribute("data-platform") || "social";
+            gtag("event", "social_click", {
+              event_category: "social_media",
+              event_label: platform,
+              value: 1,
+            });
+          });
+        });
+      });
+
+      // Scroll to footer and highlight email function
+      function scrollToFooter() {
+        const footer = document.querySelector(".footer-section");
+        const emailInput = document.querySelector(".newsletter-input");
+
+        footer.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        setTimeout(() => {
+          if (emailInput) {
+            emailInput.focus();
+            emailInput.style.boxShadow = "0 0 0 3px rgba(62, 213, 221, 0.5)";
+            emailInput.style.transition = "box-shadow 0.3s ease";
+
+            setTimeout(() => {
+              emailInput.style.boxShadow = "";
+            }, 2000);
+          }
+        }, 800);
+      }
+    </script>
+    <!-- Replace GA_TRACKING_ID with your actual Google Analytics tracking ID -->
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="content-wrapper">
+        <!-- Hero Images Section with Overlaid Content -->
+        <div class="hero-images">
+          <!-- First Hero Image with Main Content -->
+          <div class="hero-image-container">
+            <img
+              src="images/AIronWall-Hero.webp"
+              alt="Hero Banner 1"
+              class="hero-image"
+            />
+            <div class="hero-overlay">
+              <nav class="navbar">
+                <div class="brand-logo">
+                  <span class="brand-airon">AIron</span
+                  ><span class="brand-wall">Wall</span>
+                </div>
+                <div class="nav-links">
+                  <button class="nav-button active" data-nav="inicio">
+                    Inicio
+                  </button>
+                  <button class="nav-button" data-nav="faq">FAQ</button>
+                  <button
+                    class="nav-button"
+                    data-nav="contactanos"
+                    onclick="scrollToFooter()"
+                  >
+                    Contactanos
+                  </button>
+                  <button class="nav-button" data-nav="menu">Menu</button>
+                </div>
+              </nav>
+
+              <div class="hero-content">
+                <h1 class="hero-title">
+                  Incrementa la seguridad de tu empresa
+                </h1>
+                <p class="hero-description">
+                  AIronWall automatiza simulaciones de ciberataques reales para
+                  detectar vulnerabilidades críticas y entrenar a tu equipo de
+                  seguridad.<br />
+                  Convertí cada debilidad en una oportunidad de fortalecimiento
+                  con módulos de aprendizaje personalizados.
+                </p>
+                <button class="cta-button" data-action="empieza-ya">
+                  Empieza ya
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Hero Image with About Content -->
+          <div class="hero-image-container">
+            <img
+              src="images/AIronWall-about-us.png"
+              alt="Hero Banner 2"
+              class="hero-image"
+            />
+            <div class="about-overlay">
+              <div class="about-content">
+                <div class="section-header">
+                  <div class="section-subtitle">SOBRE NOSOTROS</div>
+                  <h2 class="section-title">Conoce Aironwall</h2>
+                  <p class="section-description">
+                    En AIronWall, transformamos la ciberseguridad en una
+                    experiencia activa de aprendizaje.<br />
+                    Diseñamos un sistema que simula ataques reales para
+                    identificar vulnerabilidades en la infraestructura de tu
+                    empresa y, a partir de esos resultados, ofrecemos
+                    entrenamiento personalizado para fortalecer a tu equipo
+                    técnico.<br />
+                    Creemos que la mejor defensa es la preparación. Por eso
+                    combinamos automatización, análisis inteligente y formación
+                    práctica para ayudarte a anticipar riesgos y construir
+                    entornos digitales más seguros.
+                  </p>
+                </div>
+                <button class="learn-more-button" data-action="conocer-mas">
+                  Conocer más
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Third Hero Image -->
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/8054719a58295dd3b271b79ca171710351bb1674?placeholderIfAbsent=true"
+            alt="Hero Banner 3"
+            class="hero-image"
+          />
+        </div>
+
+        <!-- Featured Points Section -->
+        <section class="featured-section">
+          <div class="featured-container">
+            <div class="featured-content">
+              <div class="featured-image-column">
+                <div class="featured-image-wrapper">
+                  <img
+                    src="images/featured-main-image.png"
+                    alt="Security Features"
+                    class="featured-main-image"
+                  />
+                </div>
+              </div>
+
+              <div class="featured-text-column">
+                <div class="featured-text-content">
+                  <div class="section-header">
+                    <div class="section-subtitle">CARACTERISTICAS CLAVE</div>
+                    <h2 class="section-title">
+                      Características clave de nuestro servicio
+                    </h2>
+                    <p class="section-description">
+                      Potenciamos tu equipo con soluciones inteligentes que
+                      combinan automatización, detección avanzada y formación
+                      personalizada.
+                    </p>
+                  </div>
+
+                  <div class="features-grid">
+                    <div class="feature-card">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/66b494bed5a265049e6a76af8dbd8aeff098113e?placeholderIfAbsent=true"
+                        alt="Custom Solutions"
+                        class="feature-icon"
+                      />
+                      <div class="feature-content">
+                        <h3 class="feature-title">Soluciones personalizadas</h3>
+                        <p class="feature-description">
+                          Simulaciones enfocadas en las necesidades específicas
+                          de tu empresa.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="feature-card">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/e898c434aa732ac3b978dcf9247afb6f3228e6a0?placeholderIfAbsent=true"
+                        alt="Vulnerability Analysis"
+                        class="feature-icon"
+                      />
+                      <div class="feature-content">
+                        <h3 class="feature-title">
+                          Análisis de vulnerabilidades
+                        </h3>
+                        <p class="feature-description">
+                          Identificamos puntos críticos con reportes claros y
+                          accionables.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="features-grid">
+                    <div class="feature-card">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/8631c5c150fbc983e189088b206a1d65817ba6dd?placeholderIfAbsent=true"
+                        alt="24/7 Support"
+                        class="feature-icon"
+                      />
+                      <div class="feature-content">
+                        <h3 class="feature-title">
+                          Asistencia especializada 24/7
+                        </h3>
+                        <p class="feature-description">
+                          Soporte continuo para incidentes y consultas tecnicas.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="feature-card">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/394bc1f5a1829cc2a25035780f6c1e3e51186ca4?placeholderIfAbsent=true"
+                        alt="Custom Training"
+                        class="feature-icon"
+                      />
+                      <div class="feature-content">
+                        <h3 class="feature-title">
+                          Programas de formación a medida
+                        </h3>
+                        <p class="feature-description">
+                          Entrenamiento práctico basado en los resultados
+                          obtenidos.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Our Goals Section -->
+        <section class="goals-section">
+          <div class="goals-container">
+            <div class="goals-content">
+              <div class="goals-text-column">
+                <div class="section-header">
+                  <div class="section-subtitle">NUESTROS OBJETIVOS</div>
+                  <h2 class="section-title">
+                    Protegiendo tu mundo digital juntos
+                  </h2>
+                  <p class="section-description">
+                    Nuestro compromiso es acompañarte en cada paso para asegurar
+                    tu infraestructura, reduciendo riesgos y fortaleciendo tu
+                    confianza digital.
+                  </p>
+                </div>
+              </div>
+
+              <div class="goals-image-column">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/0beb900ec0c9b7a09dcc16c1d82d3b1ad821511c?placeholderIfAbsent=true"
+                  alt="Digital Protection"
+                  class="goals-image"
+                />
+              </div>
+            </div>
+
+            <div class="goals-cards-container">
+              <div class="goal-card featured-card">
+                <div class="goal-content">
+                  <h3 class="goal-title">Misión</h3>
+                  <p class="goal-description">
+                    Brindar soluciones inteligentes y accesibles para anticipar,
+                    prevenir y responder a amenazas cibernéticas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="goal-card basic-card">
+                <div class="goal-content">
+                  <h3 class="goal-title">Objetivos Clave</h3>
+                  <p class="goal-description">
+                    Desarrollar tecnologías escalables, mejorar la experiencia
+                    del usuario y garantizar la protección de los datos.
+                  </p>
+                </div>
+              </div>
+
+              <div class="goal-card basic-card">
+                <div class="goal-content">
+                  <h3 class="goal-title">Enfoque en el cliente</h3>
+                  <p class="goal-description">
+                    Trabajamos junto a vos para comprender tus desafíos reales y
+                    ofrecer soluciones a tus necesidades.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing-section">
+          <div class="pricing-container">
+            <div class="pricing-header-content">
+              <div class="pricing-image-column">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/80760cd2d6f304bf79b1cd47f8d164ac6fe5c63b?placeholderIfAbsent=true"
+                  alt="Pricing"
+                  class="pricing-header-image"
+                />
+              </div>
+
+              <div class="pricing-text-column">
+                <div class="section-header">
+                  <div class="section-subtitle">TABLA DE PRECIOS</div>
+                  <h2 class="section-title">
+                    Empezá a protegerte con nuestras soluciones
+                  </h2>
+                  <p class="section-description">
+                    El plan ideal para cada etapa de tu crecimiento digital. Sin
+                    sorpresas, sin costos ocultos.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pricing-cards-container">
+              <div class="pricing-card basic-plan">
+                <div class="plan-header">
+                  <div class="plan-name">BASICO</div>
+                  <p class="plan-description">
+                    Protección esencial para empezar. Ideal para pequeñas
+                    empresas.
+                  </p>
+
+                  <div class="price-container">
+                    <span class="price">$99.000</span>
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0a1219be1922d97325369141cc78437ea9d09ffc?placeholderIfAbsent=true"
+                      alt="Divider"
+                      class="price-divider"
+                    />
+                    <span class="price-period">/mes</span>
+                  </div>
+                </div>
+
+                <div class="plan-features">
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Simulaciones IA básicas</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Escaneo único de servidor</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Informe simplificado</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text"
+                      >Soporte por email horario laboral</span
+                    >
+                  </div>
+                </div>
+
+                <button class="plan-button">Probar Gratis</button>
+              </div>
+
+              <div class="pricing-card standard-plan">
+                <div class="plan-header">
+                  <div class="plan-name">ESTANDÁR</div>
+                  <p class="plan-description">
+                    Seguridad avanzada para crecer con confianza.
+                  </p>
+
+                  <div class="price-container featured">
+                    <span class="price">$199.000</span>
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6a1da322e1fbce41324d23ef7931d3be3ceb99f?placeholderIfAbsent=true"
+                      alt="Divider"
+                      class="price-divider"
+                    />
+                    <span class="price-period">/mes</span>
+                  </div>
+                </div>
+
+                <div class="plan-features">
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Todo en Básico</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text"
+                      >Simulaciones y pentesting ilimitado</span
+                    >
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Escaneo hasta 3 servidores</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text"
+                      >Notificaciones en tiempo real</span
+                    >
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Soporte prioritario</span>
+                  </div>
+                </div>
+
+                <button class="plan-button">Probar Gratis</button>
+              </div>
+
+              <div class="pricing-card advanced-plan">
+                <div class="plan-header">
+                  <div class="plan-name">AVANZADO</div>
+                  <p class="plan-description">
+                    Máxima protección y cumplimiento profesional.
+                  </p>
+
+                  <div class="price-container">
+                    <span class="price">$399.000</span>
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6a1da322e1fbce41324d23ef7931d3be3ceb99f?placeholderIfAbsent=true"
+                      alt="Divider"
+                      class="price-divider"
+                    />
+                    <span class="price-period">/mes</span>
+                  </div>
+                </div>
+
+                <div class="plan-features">
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Todo en Estándar</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Pentesting continuo</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Informes DGPR/ISO</span>
+                  </div>
+                  <div class="feature-item">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets/TEMP/02ae1f94c3e1d37de41b6d1654100738840f9ce2?placeholderIfAbsent=true"
+                      alt="Check"
+                      class="check-icon"
+                    />
+                    <span class="feature-text">Formacion con seguimiento</span>
+                  </div>
+                </div>
+
+                <button class="plan-button">Contratar ahora</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+          <div class="testimonials-container">
+            <div class="testimonials-header-content">
+              <div class="testimonials-text-column">
+                <div class="section-header">
+                  <div class="section-subtitle">TESTIMONIOS</div>
+                  <h2 class="section-title">Lo que dicen Nuestros clientes</h2>
+                  <p class="section-description">
+                    Descubrí cómo ayudamos a empresas como la tuya a proteger
+                    sus activos digitales con soluciones claras, efectivas y sin
+                    sorpresas.
+                  </p>
+                </div>
+              </div>
+
+              <div class="testimonials-image-column">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb345d9fc0063242f6c83eeb5ac273530f222638?placeholderIfAbsent=true"
+                  alt="Testimonials"
+                  class="testimonials-header-image"
+                />
+              </div>
+            </div>
+
+            <div class="testimonials-grid">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  Con AIronWall logramos detectar fallas críticas antes de que
+                  se volvieran problemas reales. Muy recomendados.
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c3c8f5eb0d55fcff956717d3aa96516c2268791?placeholderIfAbsent=true"
+                    alt="Julian Alconcher"
+                    class="author-image"
+                  />
+                  <div class="author-info">
+                    <h4 class="author-name">Julian Alconcher</h4>
+                    <p class="author-role">CTO en Synkronet</p>
+                    <div class="rating-stars">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  Su servicio de pentesting nos dio una visión completa de
+                  nuestras vulnerabilidades. Todo muy claro y profesional.
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/524a5e2f5a8207b9e0c218b9c971d18123f64dc5?placeholderIfAbsent=true"
+                    alt="Francisco Ruiz Gomez"
+                    class="author-image"
+                  />
+                  <div class="author-info">
+                    <h4 class="author-name">Francisco Ruiz Gomez</h4>
+                    <p class="author-role">Head of Engineering en BitNube</p>
+                    <div class="rating-stars">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonials-grid">
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  El soporte es excelente. Nos ayudaron a entender los riesgos y
+                  priorizar soluciones sin complicaciones.
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/3afe9f9a341118da5ba4d291d1862ecd3b2a95b9?placeholderIfAbsent=true"
+                    alt="Francisco Clarke"
+                    class="author-image"
+                  />
+                  <div class="author-info">
+                    <h4 class="author-name">Francisco Clarke</h4>
+                    <p class="author-role">
+                      Cybersecurity Analyst en CodeTrust
+                    </p>
+                    <div class="rating-stars">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="testimonial-card">
+                <p class="testimonial-text">
+                  El módulo de formación nos permitió capacitar al equipo de
+                  forma efectiva. ¡La IA es un plus!
+                </p>
+                <div class="testimonial-author">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/32c602702c4952438efdca143ded3de001a94e29?placeholderIfAbsent=true"
+                    alt="Antonio Carlos"
+                    class="author-image"
+                  />
+                  <div class="author-info">
+                    <h4 class="author-name">Antonio Carlos</h4>
+                    <p class="author-role">Backend Developer en StackForge</p>
+                    <div class="rating-stars">
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                      <img
+                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/a13b5b426c03466d26cb07a4b6abb183b046a471?placeholderIfAbsent=true"
+                        alt="Star"
+                        class="star-icon"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer-section">
+          <div class="footer-container">
+            <div class="footer-brand">
+              <div class="brand-content">
+                <h3 class="brand-name">
+                  <span class="brand-airon">AIron</span
+                  ><span class="brand-wall">Wall</span>
+                </h3>
+                <p class="brand-description">
+                  Cuidamos tu empresa, para que te concentres en hacerla
+                  crecer.Protección inteligente, accesible y sin letras chicas.
+                </p>
+              </div>
+
+              <div class="social-media">
+                <a
+                  href="https://www.instagram.com/aironwall/?igsh=NnNucTkwdmM3Y2Rk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-link"
+                  data-platform="instagram"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/b21a67685945dd4881ec89de2370195a122a60b5?placeholderIfAbsent=true"
+                    alt="Instagram"
+                    class="social-icon"
+                  />
+                </a>
+                <a href="#" class="social-link" data-platform="facebook">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4bea8fe943ac758ef611b8e54559a08cba725619?placeholderIfAbsent=true"
+                    alt="Facebook"
+                    class="social-icon"
+                  />
+                </a>
+                <a href="#" class="social-link" data-platform="twitter">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/c772fe813580d5d60e291596a700cd8e96814c9a?placeholderIfAbsent=true"
+                    alt="Twitter"
+                    class="social-icon"
+                  />
+                </a>
+                <a href="#" class="social-link" data-platform="youtube">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/4e18d37665ac8fc9080994e648290b2921dc1547?placeholderIfAbsent=true"
+                    alt="YouTube"
+                    class="social-icon"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div class="footer-links">
+              <h4 class="footer-title">Enlaces Rapidos</h4>
+              <div class="footer-link-list">
+                <a href="#" class="footer-link">Nuestros Servicios</a>
+                <a href="#" class="footer-link">Sobre Nosotros</a>
+                <a href="#" class="footer-link">Precios</a>
+                <a href="#" class="footer-link">Testimonios</a>
+              </div>
+            </div>
+
+            <div class="footer-contact">
+              <h4 class="footer-title">Contacto</h4>
+              <div class="contact-list">
+                <div class="contact-item">aironwallcompany@aiwall.com</div>
+                <div class="contact-item">Av. Leandro Alem 1253, BHI, ARG</div>
+                <div class="contact-item">+54 1234567890</div>
+              </div>
+            </div>
+
+            <div class="footer-newsletter">
+              <h4 class="footer-title">Noticias</h4>
+              <div class="newsletter-form">
+                <input
+                  type="email"
+                  placeholder="Ingrese su email"
+                  class="newsletter-input"
+                />
+                <button class="newsletter-button">Suscribirse</button>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- Decorative Icon -->
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/fc8f1955d2b81f66e77c6529a1d7f32e73fcb609?placeholderIfAbsent=true"
+          alt="Decorative"
+          class="decorative-icon"
+        />
+      </div>
+    </div>
+  </body>
+</html>
