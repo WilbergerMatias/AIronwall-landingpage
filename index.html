@@ -90,28 +90,28 @@
               alt="Hero Banner 1"
               class="hero-image"
             />
+            <button class="menu-toggle" aria-label="Open menu">☰</button>
+            <nav class="navbar">
+              <div class="brand-logo">
+                <span class="brand-airon">AIron</span
+                ><span class="brand-wall">Wall</span>
+              </div>
+              <div class="nav-links">
+                <button class="nav-button active" data-nav="inicio">
+                  Inicio
+                </button>
+                <button class="nav-button" data-nav="faq">FAQ</button>
+                <button
+                  class="nav-button"
+                  data-nav="contactanos"
+                  onclick="scrollToFooter()"
+                >
+                  Contactanos
+                </button>
+                <button class="nav-button" data-nav="menu">Menu</button>
+              </div>
+            </nav>
             <div class="hero-overlay">
-              <nav class="navbar">
-                <div class="brand-logo">
-                  <span class="brand-airon">AIron</span
-                  ><span class="brand-wall">Wall</span>
-                </div>
-                <div class="nav-links">
-                  <button class="nav-button active" data-nav="inicio">
-                    Inicio
-                  </button>
-                  <button class="nav-button" data-nav="faq">FAQ</button>
-                  <button
-                    class="nav-button"
-                    data-nav="contactanos"
-                    onclick="scrollToFooter()"
-                  >
-                    Contactanos
-                  </button>
-                  <button class="nav-button" data-nav="menu">Menu</button>
-                </div>
-              </nav>
-
               <div class="hero-content">
                 <h1 class="hero-title">
                   Incrementa la seguridad de tu empresa
@@ -854,5 +854,28 @@
         />
       </div>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector(".nav-links");
+    
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          nav.classList.toggle("open");
+        });
+    
+        document.addEventListener("click", () => {
+          if (nav.classList.contains("open")) {
+            nav.classList.remove("open");
+          }
+        });
+    
+        nav.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent closing when clicking inside nav
+        });
+      });
+    </script>
+    
   </body>
 </html>
