@@ -53,7 +53,6 @@ body {
 .content-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1440px;
 }
 
 @media (max-width: 991px) {
@@ -75,7 +74,7 @@ body {
 .hero-overlay,
 .about-overlay {
   position: absolute;
-  top: 0;
+  top: 15vh;
   left: 0;
   right: 0;
   bottom: 0;
@@ -90,6 +89,7 @@ body {
 @media (max-width: 991px) {
   .hero-overlay,
   .about-overlay {
+    top: 0vh;
     padding: 20px;
   }
 }
@@ -162,7 +162,6 @@ body {
 .nav-button:hover,
 .nav-button.active {
   background-color: rgba(62, 213, 221, 0.2);
-  color: #3ed5dd;
 }
 
 .hero-content,
@@ -170,13 +169,12 @@ body {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 100px;
 }
 
 @media (max-width: 991px) {
   .hero-content,
   .about-content {
-    padding-top: 120px;
+    padding-top: 12px;
   }
 }
 
@@ -278,6 +276,8 @@ body {
 @media (max-width: 991px) {
   .hero-image {
     max-width: 100%;
+    padding-top:5%;
+    min-height: 20vh;
   }
 }
 
@@ -453,6 +453,7 @@ body {
 @media (max-width: 991px) {
   .section-description {
     max-width: 100%;
+    font-size:12px;
   }
 }
 
@@ -1848,7 +1849,7 @@ button:focus,
 .about-overlay {
   position: relative; /* Remove absolute if overlapping */
   min-height: auto;
-  padding: 20px;
+  padding-top: 20px;
 }
 
 .hero-content,
@@ -1861,6 +1862,9 @@ button:focus,
 
 
 @media (max-width: 768px) {
+  .section-description{
+    font-size:11px;
+  }
   .newsletter-form {
     flex-direction: row;
     padding: 4px;
@@ -1887,5 +1891,26 @@ button:focus,
     content: "✔";
     font-size: 14px;
     color: #fff;
+  }
+}
+
+
+.hero-image-container.with-bg {
+  background-size: 90% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  min-height: 80vh; /* Adjust height as needed for desktop view */
+}
+
+@media (max-width: 991px) {
+  .hero-image-container.with-bg {
+    background-size: 110% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    min-height: 60vh /* Smaller height for mobile */
   }
 }
